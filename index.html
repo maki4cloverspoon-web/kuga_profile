@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>久 贺 . プロフィール</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    /* 深い赤グラデーション背景 - スクリーンショットに合わせる */
+    background: linear-gradient(180deg, #2a0505 0%, #1a0303 35%, #0d0101 100%);
+    background-attachment: fixed;
+    color: #ffffff;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 480px;
+    padding: 48px 20px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ─── PROFILE ─── */
+  .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+    text-align: center;
+  }
+
+  .avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255,255,255,0.4);
+  }
+
+  .profile-name {
+    font-size: 1.45rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: #ffffff;
+    margin-top: 4px;
+  }
+
+  .profile-bio {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.85);
+    letter-spacing: 0.04em;
+    line-height: 1.7;
+  }
+
+  .twitter-icon-link {
+    font-size: 1.3rem;
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    margin-top: 2px;
+  }
+
+  /* ─── LINK CARDS ─── */
+  .links {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .link-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding: 16px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.18);
+    background: rgba(90, 10, 10, 0.55);
+    color: #ffffff;
+    transition: background 0.15s, transform 0.1s;
+  }
+  .link-card:hover  { background: rgba(110,14,14,0.7); }
+  .link-card:active { transform: scale(0.97); }
+
+  .link-icon {
+    font-size: 1.3rem;
+    width: 28px;
+    text-align: center;
+    flex-shrink: 0;
+    opacity: 0.9;
+  }
+
+  .link-text { flex: 1; }
+  .link-title { font-size: 0.9rem; font-weight: 700; letter-spacing: 0.06em; }
+  .link-sub   { font-size: 0.72rem; color: rgba(255,255,255,0.65); margin-top: 3px; line-height: 1.5; }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255,255,255,0.15);
+    margin: 4px 0 22px;
+  }
+
+  /* ─── SECTION LABEL ─── */
+  .sec-label {
+    width: 100%;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  /* ─── SCHEDULE ─── */
+  .schedule {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+
+  .sched-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 16px;
+    background: rgba(90,10,10,0.55);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 6px;
+    font-size: 0.8rem;
+  }
+
+  .sched-days { color: rgba(255,255,255,0.6); min-width: 84px; font-size: 0.72rem; }
+  .sched-type { color: #fff; font-weight: 400; flex: 1; }
+  .sched-time { color: rgba(255,255,255,0.5); font-size: 0.72rem; white-space: nowrap; }
+
+  /* ─── RANDOM ─── */
+  .random-wrap { width: 100%; margin-bottom: 28px; }
+
+  .random-box {
+    background: rgba(90,10,10,0.55);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 6px;
+    padding: 22px 20px;
+    text-align: center;
+  }
+
+  .random-btn {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 11px 28px;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: 'Noto Sans JP', sans-serif;
+    letter-spacing: 0.06em;
+    transition: background 0.12s, transform 0.1s;
+  }
+  .random-btn:hover  { background: rgba(255,255,255,0.2); }
+  .random-btn:active { transform: scale(0.97); }
+
+  .random-result {
+    display: none;
+    margin-top: 18px;
+    animation: fadeUp 0.25s ease;
+  }
+  @keyframes fadeUp {
+    from { opacity:0; transform: translateY(6px); }
+    to   { opacity:1; transform: none; }
+  }
+
+  .r-title  { font-size: 1rem; font-weight: 500; color: #fff; }
+  .r-artist { font-size: 0.75rem; color: rgba(255,255,255,0.55); margin-top: 4px; }
+  .r-link {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    letter-spacing: 0.06em;
+    padding-bottom: 1px;
+  }
+  .r-link:hover { color: #fff; border-color: #fff; }
+
+  /* ─── SONG LIST ─── */
+  .songs-wrap { width: 100%; }
+
+  .search-wrap { position: relative; margin-bottom: 12px; }
+  .search-ico {
+    position: absolute; left: 12px; top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.35);
+    pointer-events: none;
+  }
+  .search-input {
+    width: 100%;
+    background: rgba(90,10,10,0.55);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 6px;
+    padding: 10px 12px 10px 34px;
+    color: #fff;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.82rem;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .search-input:focus { border-color: rgba(255,255,255,0.45); }
+  .search-input::placeholder { color: rgba(255,255,255,0.28); }
+
+  /* 行タブ */
+  .row-tabs {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+
+  .row-tab {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    cursor: pointer;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.55);
+    background: transparent;
+    font-family: 'Noto Sans JP', sans-serif;
+    transition: all 0.12s;
+    letter-spacing: 0.04em;
+  }
+  .row-tab:hover  { border-color: rgba(255,255,255,0.55); color: #fff; }
+  .row-tab.active { background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.5); color: #fff; }
+
+  /* 機材歌/生歌フィルター */
+  .type-tabs {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+  .type-tab {
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    cursor: pointer;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.5);
+    background: transparent;
+    font-family: 'Noto Sans JP', sans-serif;
+    transition: all 0.12s;
+    letter-spacing: 0.04em;
+  }
+  .type-tab:hover  { border-color: rgba(255,255,255,0.5); color: #fff; }
+  .type-tab.active { background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.5); color: #fff; }
+
+  .count-lbl {
+    font-size: 0.68rem;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 12px;
+    letter-spacing: 0.08em;
+  }
+
+  /* 行グループ */
+  .row-group { margin-bottom: 20px; }
+
+  .row-header {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    padding: 4px 0 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    margin-bottom: 2px;
+  }
+
+  .song-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.1s;
+  }
+  .song-row:hover { background: rgba(255,255,255,0.07); }
+  .song-row:hover .yt-hint { opacity: 1; }
+
+  .song-title     { font-size: 0.82rem; color: #fff; }
+  .song-artist-sub{ font-size: 0.68rem; color: rgba(255,255,255,0.45); margin-top: 2px; }
+
+  .yt-hint {
+    font-size: 0.65rem;
+    color: rgba(255,255,255,0.5);
+    opacity: 0;
+    transition: opacity 0.12s;
+    flex-shrink: 0;
+    margin-left: 8px;
+  }
+
+  .tag-new {
+    font-size: 0.58rem;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    padding: 1px 5px;
+    border-radius: 3px;
+    margin-left: 5px;
+    vertical-align: middle;
+    letter-spacing: 0.06em;
+  }
+  .tag-live {
+    font-size: 0.58rem;
+    border: 1px solid rgba(255,255,255,0.28);
+    color: rgba(255,255,255,0.6);
+    padding: 1px 5px;
+    border-radius: 3px;
+    margin-left: 5px;
+    vertical-align: middle;
+  }
+  .tag-wip {
+    font-size: 0.58rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.4);
+    padding: 1px 5px;
+    border-radius: 3px;
+    margin-left: 5px;
+    vertical-align: middle;
+  }
+
+  .no-results {
+    text-align: center;
+    padding: 36px 0;
+    color: rgba(255,255,255,0.3);
+    font-size: 0.8rem;
+    display: none;
+  }
+
+  footer {
+    margin-top: 48px;
+    font-size: 0.65rem;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.1em;
+    text-align: center;
+  }
+  footer a { color: rgba(255,255,255,0.45); text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- PROFILE -->
+  <div class="profile">
+    <img class="avatar"
+      src="kuga.jpg"
+      alt="久贺．"
+      onerror="this.style.display='none'">
+    <div class="profile-name">久 贺 ．</div>
+    <div class="profile-bio">中華マフィアモドキのお兄さん</div>
+    <a class="twitter-icon-link" href="https://twitter.com/kugakun_spoon" target="_blank" rel="noopener">🐦</a>
+  </div>
+
+  <!-- LINK CARDS -->
+  <div class="links">
+    <a class="link-card" href="https://twitter.com/kugakun_spoon" target="_blank" rel="noopener">
+      <div class="link-icon">𝕏</div>
+      <div class="link-text">
+        <div class="link-title">X</div>
+        <div class="link-sub">配信情報／日常のつぶやき／歌ってみた情報など</div>
+      </div>
+    </a>
+    <a class="link-card" href="https://marshmallow-qa.com/ycti55k7e1hkegh?t=A9vbY6&utm_medium=url_text&utm_source=promotion" target="_blank" rel="noopener">
+      <div class="link-icon">💌</div>
+      <div class="link-text">
+        <div class="link-title">マシュマロ</div>
+        <div class="link-sub">覚えて欲しい曲はこちらへ</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SCHEDULE -->
+  <div class="sec-label">配信カレンダー</div>
+  <div class="schedule">
+    <div class="sched-row">
+      <span class="sched-days">月〜木・日</span>
+      <span class="sched-type">寝落ち枠</span>
+      <span class="sched-time">22:00〜</span>
+    </div>
+    <div class="sched-row">
+      <span class="sched-days">金・土</span>
+      <span class="sched-type">休 or 機材歌</span>
+    </div>
+    <div class="sched-row">
+      <span class="sched-days">平日（不定）</span>
+      <span class="sched-type">機材歌ゲリラ枠</span>
+      <span class="sched-time">仕事終わり次第</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- RANDOM -->
+  <div class="random-wrap">
+    <div class="sec-label">ランダムピックアップ</div>
+    <div class="random-box">
+      <button class="random-btn" id="randomBtn">🎲 ランダムで1曲</button>
+      <div class="random-result" id="randomResult">
+        <div class="r-title"  id="rTitle"></div>
+        <div class="r-artist" id="rArtist"></div>
+        <a class="r-link" id="rLink" target="_blank" rel="noopener">▶ YouTubeで検索する</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SONG LIST -->
+  <div class="songs-wrap">
+    <div class="sec-label">歌える曲リスト</div>
+
+    <!-- 機材歌 / 生歌 / 未完成 フィルター -->
+    <div class="type-tabs" id="typeTabs">
+      <button class="type-tab active" data-type="all">すべて</button>
+      <button class="type-tab" data-type="機材歌">機材歌</button>
+      <button class="type-tab" data-type="生歌">生歌</button>
+      <button class="type-tab" data-type="新着">NEW</button>
+      <button class="type-tab" data-type="未完成">未完成</button>
+    </div>
+
+    <!-- 検索 -->
+    <div class="search-wrap">
+      <span class="search-ico">🔍</span>
+      <input type="search" class="search-input" id="searchInput" placeholder="曲名・アーティスト名で検索…">
+    </div>
+
+    <!-- 行タブ（あいうえお） -->
+    <div class="row-tabs" id="rowTabs"></div>
+
+    <div class="count-lbl" id="countLbl"></div>
+    <div id="listContainer"></div>
+    <div class="no-results" id="noResults">該当する曲がありません。</div>
+  </div>
+
+  <footer>
+    © 久贺．&nbsp;｜&nbsp;
+    <a href="https://twitter.com/kugakun_spoon" target="_blank" rel="noopener">𝕏 Twitter</a>
+  </footer>
+</div>
+
+<script>
+// ─── DATA ─────────────────────────────────────────────────────────────
+const songs = [
+  { title: "チンチロリズム",           artist: "9Lana",                      tags: ["機材歌","新着"] },
+  { title: "ダーリンゲームオーバーラブ",artist: "マイキP",                    tags: ["機材歌","新着"] },
+  { title: "エム",                      artist: "内緒のピアス",               tags: ["機材歌","新着"] },
+  { title: "リメンシア",                artist: "SekikomiGohan",              tags: ["機材歌","新着"] },
+  { title: "アイデンティティ",          artist: "Kanaria",                    tags: ["機材歌"] },
+  { title: "蒼のワルツ",                artist: "Eve",                        tags: ["機材歌"] },
+  { title: "悪魔の踊り方",              artist: "キタニタツヤ",               tags: ["機材歌"] },
+  { title: "悪魔の子",                  artist: "ヒグチアイ",                 tags: ["機材歌"] },
+  { title: "ARROW",                     artist: "",                           tags: ["機材歌"] },
+  { title: "インフェルノ",              artist: "Mrs. GREEN APPLE",           tags: ["機材歌"] },
+  { title: "ヴァンパイア",              artist: "Kanaria",                    tags: ["機材歌"] },
+  { title: "ヴィータ",                  artist: "柊キライ",                   tags: ["機材歌"] },
+  { title: "ヴィラン",                  artist: "てにおは",                   tags: ["機材歌"] },
+  { title: "エス",                      artist: "内緒のピアス",               tags: ["機材歌"] },
+  { title: "エバ",                      artist: "柊キライ",                   tags: ["機材歌"] },
+  { title: "炎上アリス",                artist: "マイキP",                    tags: ["機材歌"] },
+  { title: "おかえり",                  artist: "Tani Yuuki",                 tags: ["機材歌"] },
+  { title: "踊",                        artist: "Ado",                        tags: ["機材歌"] },
+  { title: "オトノケ",                  artist: "CreepyNuts",                 tags: ["機材歌"] },
+  { title: "怪物",                      artist: "YOASOBI",                    tags: ["機材歌"] },
+  { title: "Casino",                    artist: "Azari",                      tags: ["機材歌"] },
+  { title: "ギャンブル",                artist: "syudou",                     tags: ["機材歌"] },
+  { title: "ギラギラ",                  artist: "Ado",                        tags: ["機材歌"] },
+  { title: "King",                      artist: "Kanaria",                    tags: ["機材歌"] },
+  { title: "キングスレイヤー",          artist: "マイキP",                    tags: ["機材歌"] },
+  { title: "Queen",                     artist: "Kanaria",                    tags: ["機材歌"] },
+  { title: "傀儡阿修羅",                artist: "柊マグネタイト",             tags: ["機材歌"] },
+  { title: "クネクネ",                  artist: "Raon",                       tags: ["機材歌"] },
+  { title: "限界曼荼羅",                artist: "鳥屋茶房",                   tags: ["機材歌"] },
+  { title: "コールボーイ",              artist: "syudou",                     tags: ["機材歌"] },
+  { title: "サリシノハラ",              artist: "ミキトp",                    tags: ["機材歌"] },
+  { title: "ジブラ",                    artist: "すりぃ",                     tags: ["機材歌"] },
+  { title: "シャンティ",                artist: "wotaku",                     tags: ["機材歌"] },
+  { title: "唱",                        artist: "Ado",                        tags: ["機材歌"] },
+  { title: "ずぅっといっしょ",          artist: "キタニタツヤ",               tags: ["機材歌"] },
+  { title: "絶頂讃歌",                  artist: "和ぬか",                     tags: ["機材歌"] },
+  { title: "Down",                      artist: "メガテラゼロ",               tags: ["機材歌"] },
+  { title: "ダンスデカダンス",          artist: "Chevon",                     tags: ["機材歌"] },
+  { title: "dogma",                     artist: "wotaku",                     tags: ["機材歌"] },
+  { title: "ドーベルマン",              artist: "wotaku",                     tags: ["機材歌"] },
+  { title: "トワイライト急行",          artist: "19's sound Factory",         tags: ["機材歌"] },
+  { title: "なんでもないよ",            artist: "マカロニえんぴつ",           tags: ["機材歌"] },
+  { title: "ニア",                      artist: "夏代孝明",                   tags: ["機材歌"] },
+  { title: "はい喜んで",                artist: "こっちのけんと",             tags: ["機材歌"] },
+  { title: "バニーガール",              artist: "AKASAKI",                    tags: ["機材歌"] },
+  { title: "ハッピーハロウィン",        artist: "Junky",                      tags: ["機材歌"] },
+  { title: "抜錨",                      artist: "ナナホシ管弦楽団",           tags: ["機材歌"] },
+  { title: "BALALAIKA",                 artist: "9Lana",                      tags: ["機材歌"] },
+  { title: "ビリビリ",                  artist: "すりぃ",                     tags: ["機材歌"] },
+  { title: "Beyond the way",            artist: "Giga",                       tags: ["機材歌"] },
+  { title: "病名は愛だった",            artist: "",                           tags: ["機材歌"] },
+  { title: "フィラデルフィア",          artist: "wotaku",                     tags: ["機材歌"] },
+  { title: "不言論",                    artist: "BAK",                        tags: ["機材歌"] },
+  { title: "ブリキノダンス",            artist: "",                           tags: ["機材歌"] },
+  { title: "ボッカデラベリタ",          artist: "柊キライ",                   tags: ["機材歌"] },
+  { title: "プロポーズ",                artist: "内緒のピアス",               tags: ["機材歌"] },
+  { title: "マフィア",                  artist: "wotaku",                     tags: ["機材歌"] },
+  { title: "右肩の蝶",                  artist: "",                           tags: ["機材歌"] },
+  { title: "メルト",                    artist: "supercell",                  tags: ["機材歌"] },
+  { title: "モエチャッカファイア",      artist: "弍誠",                       tags: ["機材歌"] },
+  { title: "モニタリング",              artist: "DECO*27",                    tags: ["機材歌"] },
+  { title: "酔いどれ知らず",            artist: "Kanaria",                    tags: ["機材歌"] },
+  { title: "ライカ",                    artist: "Yamada",                     tags: ["機材歌"] },
+  { title: "ラヴィ",                    artist: "すりぃ",                     tags: ["機材歌"] },
+  { title: "ルシファー",                artist: "¿?",                         tags: ["機材歌"] },
+  { title: "ルームNa4",                 artist: "超学生",                     tags: ["機材歌"] },
+  { title: "レディメイド",              artist: "Ado",                        tags: ["機材歌"] },
+  { title: "ロマンチシズム",            artist: "Mrs. GREEN APPLE",           tags: ["機材歌"] },
+  { title: "ロメオ",                    artist: "Lip×Lip",                    tags: ["機材歌"] },
+  { title: "ワールドランプシェード",    artist: "GUMI",                       tags: ["機材歌"] },
+  // 生歌
+  { title: "からくりピエロ",            artist: "40mP",                       tags: ["生歌"] },
+  { title: "ギラギラ",                  artist: "Ado",                        tags: ["生歌"] },
+  { title: "サザンカ",                  artist: "sekai no owari",             tags: ["生歌"] },
+  { title: "10月無口な君を忘れる",      artist: "あたらよ",                   tags: ["生歌"] },
+  { title: "贖罪",                      artist: "傘村トータ",                 tags: ["生歌"] },
+  { title: "スターライトパレード",      artist: "sekai no owari",             tags: ["生歌"] },
+  { title: "東京フラッシュ",            artist: "Vaundy",                     tags: ["生歌"] },
+  { title: "眠り姫",                    artist: "sekai no owari",             tags: ["生歌"] },
+  { title: "フォニイ",                  artist: "",                           tags: ["生歌"] },
+  { title: "ピーターパン",              artist: "優里",                       tags: ["生歌"] },
+  { title: "不死鳥",                    artist: "sekai no owari",             tags: ["生歌"] },
+  { title: "魔法の絨毯",                artist: "川崎鷹也",                   tags: ["生歌"] },
+  { title: "夜明けと蛍",                artist: "N-buna",                     tags: ["生歌"] },
+  { title: "夜永唄",                    artist: "神はサイコロを振らない",     tags: ["生歌"] },
+  { title: "レオ",                      artist: "優里",                       tags: ["生歌"] },
+  // 未完成
+  { title: "爆笑",                      artist: "syudou",                     tags: ["未完成"] },
+];
+
+// ─── 行（あいうえお）判定 ────────────────────────────────────────────
+// 英数字・記号は「英数」グループ、それ以外はカナ/漢字の読みで分類
+const ROW_ORDER = ["英数", "ア行","カ行","サ行","タ行","ナ行","ハ行","マ行","ヤ行","ラ行","ワ行","その他"];
+
+// ひらがな→かたかな
+function toKatakana(str) {
+  return str.replace(/[\u3041-\u3096]/g, c => String.fromCharCode(c.charCodeAt(0) + 0x60));
+}
+
+// 曲名の先頭文字から行を取得
+function getRow(title) {
+  if (!title) return "その他";
+  const first = title.charAt(0);
+  const code = first.charCodeAt(0);
+
+  // ASCII (英数・記号)
+  if (code < 0x3000) return "英数";
+
+  const kana = toKatakana(first);
+  const k = kana.charCodeAt(0);
+
+  if (k >= 0x30A1 && k <= 0x30AA) return "ア行"; // ア〜オ
+  if (k >= 0x30AB && k <= 0x30B4) return "カ行"; // カ〜ゴ
+  if (k >= 0x30B5 && k <= 0x30BE) return "サ行"; // サ〜ゾ
+  if (k >= 0x30BF && k <= 0x30C9) return "タ行"; // タ〜ド
+  if (k >= 0x30CA && k <= 0x30CE) return "ナ行"; // ナ〜ノ
+  if (k >= 0x30CF && k <= 0x30DD) return "ハ行"; // ハ〜ポ
+  if (k >= 0x30DE && k <= 0x30E2) return "マ行"; // マ〜モ
+  if (k >= 0x30E4 && k <= 0x30E8) return "ヤ行"; // ヤ〜ヨ
+  if (k >= 0x30E9 && k <= 0x30ED) return "ラ行"; // ラ〜ロ
+  if (k >= 0x30EF && k <= 0x30F3) return "ワ行"; // ワ〜ン
+
+  // 漢字は読みが不明なのでその他
+  return "その他";
+}
+
+// ─── STATE ───────────────────────────────────────────────────────────
+let currentType = "all";
+let currentRow  = "all";
+let currentSearch = "";
+
+// ─── RANDOM ──────────────────────────────────────────────────────────
+document.getElementById("randomBtn").addEventListener("click", () => {
+  const pool = songs.filter(s => !s.tags.includes("未完成"));
+  const pick = pool[Math.floor(Math.random() * pool.length)];
+  document.getElementById("rTitle").textContent = pick.title;
+  document.getElementById("rArtist").textContent = pick.artist || "—";
+  const q = encodeURIComponent((pick.title + " " + pick.artist).trim());
+  document.getElementById("rLink").href = `https://www.youtube.com/results?search_query=${q}`;
+  const el = document.getElementById("randomResult");
+  el.style.display = "block";
+  el.style.animation = "none";
+  requestAnimationFrame(() => { el.style.animation = ""; });
+});
+
+// ─── BUILD ROW TABS ───────────────────────────────────────────────────
+function buildRowTabs(availableRows) {
+  const container = document.getElementById("rowTabs");
+  container.innerHTML = "";
+
+  // 「すべて」タブ
+  const allBtn = document.createElement("button");
+  allBtn.className = "row-tab" + (currentRow === "all" ? " active" : "");
+  allBtn.dataset.row = "all";
+  allBtn.textContent = "すべて";
+  container.appendChild(allBtn);
+
+  ROW_ORDER.forEach(row => {
+    if (!availableRows.has(row)) return;
+    const btn = document.createElement("button");
+    btn.className = "row-tab" + (currentRow === row ? " active" : "");
+    btn.dataset.row = row;
+    btn.textContent = row;
+    container.appendChild(btn);
+  });
+
+}
+
+// ─── RENDER ───────────────────────────────────────────────────────────
+function ytUrl(s) {
+  return `https://www.youtube.com/results?search_query=${encodeURIComponent((s.title + " " + s.artist).trim())}`;
+}
+
+function render() {
+  // 1. タイプフィルター
+  let list = songs.slice();
+  if (currentType === "機材歌") list = list.filter(s => s.tags.includes("機材歌"));
+  else if (currentType === "生歌")  list = list.filter(s => s.tags.includes("生歌"));
+  else if (currentType === "新着")  list = list.filter(s => s.tags.includes("新着"));
+  else if (currentType === "未完成") list = list.filter(s => s.tags.includes("未完成"));
+
+  // 2. 検索
+  if (currentSearch.trim()) {
+    const q = currentSearch.trim().toLowerCase();
+    list = list.filter(s =>
+      s.title.toLowerCase().includes(q) || s.artist.toLowerCase().includes(q)
+    );
+  }
+
+  // 3. 行タブ用の存在する行を収集
+  const availableRows = new Set(list.map(s => getRow(s.title)));
+  buildRowTabs(availableRows);
+
+  // 4. 行フィルター
+  if (currentRow !== "all") {
+    list = list.filter(s => getRow(s.title) === currentRow);
+  }
+
+  // 5. 曲名順ソート（五十音・英数）
+  list.sort((a, b) => {
+    const ka = toKatakana(a.title.normalize("NFKC")).toUpperCase();
+    const kb = toKatakana(b.title.normalize("NFKC")).toUpperCase();
+    return ka.localeCompare(kb, "ja");
+  });
+
+  const container = document.getElementById("listContainer");
+  const noResults = document.getElementById("noResults");
+  document.getElementById("countLbl").textContent = `${list.length} 曲`;
+
+  if (list.length === 0) {
+    container.innerHTML = "";
+    noResults.style.display = "block";
+    return;
+  }
+  noResults.style.display = "none";
+
+  // 6. 行ごとにグループ化して表示
+  const groups = {};
+  list.forEach(s => {
+    const row = getRow(s.title);
+    if (!groups[row]) groups[row] = [];
+    groups[row].push(s);
+  });
+
+  const orderedRows = ROW_ORDER.filter(r => groups[r]);
+
+  container.innerHTML = orderedRows.map(row => {
+    const rows = groups[row].map(s => {
+      const newTag  = s.tags.includes("新着")   ? '<span class="tag-new">NEW</span>'    : "";
+      const liveTag = s.tags.includes("生歌") && currentType !== "生歌"
+                      ? '<span class="tag-live">生歌</span>' : "";
+      const wipTag  = s.tags.includes("未完成") ? '<span class="tag-wip">未完成</span>' : "";
+      return `<a class="song-row" href="${ytUrl(s)}" target="_blank" rel="noopener">
+        <div>
+          <span class="song-title">${s.title}${newTag}${liveTag}${wipTag}</span>
+          ${s.artist ? `<div class="song-artist-sub">${s.artist}</div>` : ""}
+        </div>
+        <span class="yt-hint">▶ YouTube</span>
+      </a>`;
+    }).join("");
+
+    return `<div class="row-group">
+      <div class="row-header">${row}</div>
+      ${rows}
+    </div>`;
+  }).join("");
+}
+
+// ─── EVENT LISTENERS ─────────────────────────────────────────────────
+// rowTabs: render()外でイベント委譲（重複登録防止）
+document.getElementById("rowTabs").addEventListener("click", e => {
+  const t = e.target.closest(".row-tab");
+  if (!t) return;
+  currentRow = t.dataset.row;
+  render();
+});
+
+document.getElementById("typeTabs").addEventListener("click", e => {
+  const t = e.target.closest(".type-tab");
+  if (!t) return;
+  document.querySelectorAll(".type-tab").forEach(x => x.classList.remove("active"));
+  t.classList.add("active");
+  currentType = t.dataset.type;
+  currentRow  = "all"; // タイプ変更時は行リセット
+  render();
+});
+
+document.getElementById("searchInput").addEventListener("input", e => {
+  currentSearch = e.target.value;
+  currentRow = "all";
+  render();
+});
+
+render();
+</script>
+</body>
+</html>
